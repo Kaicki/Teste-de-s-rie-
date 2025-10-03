@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bertaglia Streaming</title>
+  <title>Bertaglia</title>
   <style>
     body {
       margin: 0;
@@ -17,27 +17,19 @@
       text-align: center;
       font-size: 1.5em;
     }
-    .container {
+    .catalogo, .serie {
       padding: 20px;
     }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
     .card {
+      display: inline-block;
       width: 150px;
+      margin: 10px;
       cursor: pointer;
       text-align: center;
     }
     .card img {
       width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-    .card img:hover {
-      transform: scale(1.05);
+      border-radius: 5px;
     }
     .player-container {
       margin-top: 20px;
@@ -65,36 +57,34 @@
   <header>Bertaglia Streaming</header>
 
   <!-- Catálogo -->
-  <div id="catalogo" class="container">
-    <div class="cards">
-      <div class="card" onclick="abrirSerie('ScreamQueens')">
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5pFxT_mD4YLVQ4HCArPftpTW72JPT0UfX9aqcGAG2dnAmyRlRKoxwFu_cGgwPrEc_01fT7yAntSBcC9Z4kCy7ED-k2MNCp4xyOtl6O5qZ" alt="Scream Queens - Temporadas">
-        <p>Scream Queens</p>
-      </div>  
+  <div id="catalogo" class="catalogo">
+    <div class="card" onclick="abrirSerie('ScreamQueens')">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5pFxT_mD4YLVQ4HCArPftpTW72JPT0UfX9aqcGAG2dnAmyRlRKoxwFu_cGgwPrEc_01fT7yAntSBcC9Z4kCy7ED-k2MNCp4xyOtl6O5qZ" alt="Scream Queens">
+      <p>Scream Queens</p>
+    </div>  
 
-      <div class="card" onclick="abrirSerie('DoctorWho')">
-        <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Doctor Who - Temporadas">
-        <p>Doctor Who</p>
-      </div>  
+    <div class="card" onclick="abrirSerie('DoctorWho')">  
+      <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Doctor Who">  
+      <p>Doctor Who</p>  
+    </div>  
 
-      <div class="card" onclick="abrirSerie('monsters_at_work')">
-        <img src="https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg" alt="Monstros no Trabalho">
-        <p>Monstros no Trabalho</p>
-      </div>  
+    <div class="card" onclick="abrirSerie('monsters_at_work')">
+      <img src="https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg" alt="Monstros no Trabalho">  
+      <p>Monstros no Trabalho</p>  
+    </div>  
 
-      <div class="card" onclick="abrirSerie('Três_Espiãs_Demais')">
-        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmVXkT-SAAUYC6i3YzAWo3d8Watk-WuB2PqbEY9RX0scYKZb2smfKR8KMi6bcGdl_Ss1lxXFGlxqYDWp_3kPu5LBsGjBLfagpwcejlcjzp" alt="Três Espiãs Demais">
-        <p>Três Espiãs Demais</p>
-      </div>
-    </div>
+    <div class="card" onclick="abrirSerie('Três_Espiãs_Demais')">  
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmVXkT-SAAUYC6i3YzAWo3d8Watk-WuB2PqbEY9RX0scYKZb2smfKR8KMi6bcGdl_Ss1lxXFGlxqYDWp_3kPu5LBsGjBLfagpwcejlcjzp" alt="Três Espiãs Demais">  
+      <p>Três Espiãs Demais</p>  
+    </div>  
+
   </div>
 
   <!-- Página da Série -->
-  <div id="serie" class="container" style="display: none;">
+  <div id="serie" class="serie" style="display: none;">
     <button onclick="voltar()">⬅ Voltar</button>
     <h2 id="tituloSerie"></h2>
     <p id="infoSerie"></p>
-    <img id="posterSerie" src="" style="width:200px; border-radius:8px; margin:10px 0;">
     
     <div>
       <label for="temporadaSelect">Temporada:</label>
@@ -113,45 +103,45 @@
       ScreamQueens: {
         titulo: "Scream Queens",
         info: "2015 | Terror, Comédia, Mistério",
-        poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5pFxT_mD4YLVQ4HCArPftpTW72JPT0UfX9aqcGAG2dnAmyRlRKoxwFu_cGgwPrEc_01fT7yAntSBcC9Z4kCy7ED-k2MNCp4xyOtl6O5qZ",
         temporadas: {
           1: [
             "1PDNvw4p83MAmB6DZPvm6RdrruOtJ4Z5K",
             "1brBdmPr-yUZrj51-5Ke94q7gdji6T6Z9",
             "1D7MvyAXuK4TFng-k8WOLTRMXStl4GRLq"
+          ],
+          2: [
+            "0B6RM5w9s634GMTZY0WFMV1o2M1k",
+            "0B6RM5w9s634GeHo4ajFkUE92YjQ",
+            "0B6RM5w9s634GUnBOQzZZXVrODa",
+            "0B6RM5w9s634GbG5S2HMS0lUwcM8",
+            "0B6RM5w9s634GZDd3cVNzMUQ3bTQ"
           ]
         }
       },
       DoctorWho: {
         titulo: "Doctor Who",
-        info: "2005 | Ficção Científica",
-        poster: "https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg",
+        info: "Série de ficção científica",
         temporadas: {
           1: [
-            "ID_VIDEO_DOCTORWHO_EP1",
-            "ID_VIDEO_DOCTORWHO_EP2"
+            "1Pd1234567890ABC", "1Xyz9876543210DEF"
           ]
         }
       },
       monsters_at_work: {
         titulo: "Monstros no Trabalho",
-        info: "2021 | Animação, Comédia",
-        poster: "https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg",
+        info: "Animação | Disney+",
         temporadas: {
           1: [
-            "ID_VIDEO_MONSTROS_EP1",
-            "ID_VIDEO_MONSTROS_EP2"
+            "1AbCdEfGhIjKlMnOp"
           ]
         }
       },
       "Três_Espiãs_Demais": {
         titulo: "Três Espiãs Demais",
-        info: "2001 | Animação, Ação",
-        poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmVXkT-SAAUYC6i3YzAWo3d8Watk-WuB2PqbEY9RX0scYKZb2smfKR8KMi6bcGdl_Ss1lxXFGlxqYDWp_3kPu5LBsGjBLfagpwcejlcjzp",
+        info: "Animação | Aventura",
         temporadas: {
           1: [
-            "ID_VIDEO_ESPIAS_EP1",
-            "ID_VIDEO_ESPIAS_EP2"
+            "1QwertyUiopAsDfGh"
           ]
         }
       }
@@ -165,7 +155,6 @@
       document.getElementById("catalogo").style.display = "none";
       document.getElementById("serie").style.display = "block";
 
-      document.getElementById("posterSerie").src = serieAtual.poster;
       document.getElementById("tituloSerie").textContent = serieAtual.titulo;
       document.getElementById("infoSerie").textContent = serieAtual.info;
 
